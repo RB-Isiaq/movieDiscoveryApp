@@ -20,10 +20,9 @@ const Hero = () => {
   }, []);
   return (
     <div
-      className="w-full min-h-[600px] bg-cover bg-center lg:px-[95px] md:px-8 px-4 flex items-center mt-0 ml-[-16px] absolute top-0 transition-all duration-1000 ease-in"
+      className="w-full min-h-[600px] bg-cover bg-center lg:px-[95px] md:px-8 px-4 flex items-center mt-0 mx-auto absolute top-0 transition-all duration-1000 ease-in "
       style={{
         backgroundImage: `url(${IMG_URL}${data[randomNumber]?.backdrop_path})`,
-        backgroundPosition: "fixed",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}

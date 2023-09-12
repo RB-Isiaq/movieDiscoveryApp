@@ -5,8 +5,6 @@ import Navbar from "../../components/Navbar";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { getData } from "../../services/ApiClient";
 import { DataCtx } from "../../context/dataContext";
-import { Loader } from "../../assets";
-
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -29,9 +27,7 @@ const Home = () => {
     getMovies();
   }, [getMovies]);
 
-  return loading ? (
-    <img src={Loader} alt="loader" />
-  ) : error ? (
+  return error ? (
     <p className="text-center text-2xl text-red-400 mt-[300px]">{error}</p>
   ) : (
     <section className="w-full flex justify-center items-center flex-col">

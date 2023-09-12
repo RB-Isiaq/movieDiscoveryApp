@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HeroDetails = ({ data }) => {
   return (
-    <div className="w-[504px] h-[290px] flex flex-col gap-4 font-dm_sans text-white">
+    <div className="w-[504px] min-h-[290px] flex flex-col gap-4 font-dm_sans text-white mt-28">
       <h1 className="text-white font-dm_sans text-[48px] font-bold leading-[56px]">
         {data?.title}
       </h1>
@@ -18,7 +18,7 @@ const HeroDetails = ({ data }) => {
         </div>
       </div>
       <p className="text-[14px] w-[302px]">{data?.overview}</p>
-      <Link to={`/${data?.id}`}>
+      <Link to={`/movie/${data?.id}`}>
         <div className="w-[169px] flex px-4 py-[6px] gap-[8px] bg-[#BE123C] rounded-md">
           <img src={Play} alt="play" />
           <p className="text-[13px] uppercase">Watch trailer</p>
