@@ -5,7 +5,7 @@ import CopyRight from "./CopyRight";
 
 const Footer = () => {
   return (
-    <div className="w-full sm:w-[492px] h-[145px] inline-flex flex-col items-center gap-9">
+    <div className="w-full sm:w-[492px] h-[145px] inline-flex flex-col items-center gap-9 mt-[147px]">
       <FooterIcons />
       <FooterLinks />
       <CopyRight />
