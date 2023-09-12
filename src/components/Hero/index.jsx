@@ -22,7 +22,11 @@ const Hero = () => {
     <div
       className="w-full min-h-[600px] bg-cover bg-center lg:px-[95px] md:px-8 px-4 flex items-center mt-0 mx-auto absolute top-0 transition-all duration-1000 ease-in "
       style={{
-        backgroundImage: `url(${IMG_URL}${data[randomNumber]?.backdrop_path})`,
+        backgroundImage: ` linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.7)
+        ), url(${IMG_URL}${data[randomNumber]?.backdrop_path})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
