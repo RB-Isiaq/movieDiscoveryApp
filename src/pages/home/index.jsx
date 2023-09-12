@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { getData } from "../../services/ApiClient";
 import { DataCtx } from "../../context/dataContext";
+import { Loader } from "../../assets";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
@@ -14,11 +15,10 @@ const Home = () => {
     try {
       setLoading(true);
       const res = await getData("movie/popular");
-      console.log(res);
       if (res);
       setData(res.results);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -29,15 +29,17 @@ const Home = () => {
     getMovies();
   }, [getMovies]);
 
-  return (
-    <>
-      <section className="w-full flex-center flex-col">
-        <Navbar />
-        <Hero />
-        <PaginateData data={data} loading={loading} error={error} />
-        <Footer />
-      </section>
-    </>
+  return loading ? (
+    <img src={Loader} alt="loader" />
+  ) : error ? (
+    <p className="text-center text-2xl text-red-400 mt-[300px]">{error}</p>
+  ) : (
+    <section className="w-full flex justify-center items-center flex-col">
+      <Navbar />
+      <Hero />
+      <PaginateData movieData={data} loading={loading} error={error} />
+      <Footer />
+    </section>
   );
 };
 

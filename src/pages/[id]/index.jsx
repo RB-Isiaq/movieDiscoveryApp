@@ -6,21 +6,26 @@ import { getData } from "../../services/ApiClient";
 const CountryDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const getMovie = useCallback(async () => {
     try {
+      setLoading(true);
       const res = await getData(`movie/${id}`);
-      setData(res);
-      console.log(data, "RDATAES");
+      if (res) setData(res);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
+      setError(error.message);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
   useEffect(() => {
     getMovie();
   }, [getMovie]);
-  return <Movie data={data} />;
+  return <Movie data={data} error={error} loading={loading} />;
 };
 
 export default CountryDetails;

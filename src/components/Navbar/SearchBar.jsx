@@ -9,9 +9,14 @@ const SearchBar = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let res;
     try {
-      const res = await getData(`search/movie?query=${value}`);
-      console.log(res);
+      if (value) {
+        res = await getData(`search/movie?query=${value}`);
+      } else {
+        res = await getData("movie/popular");
+      }
+
       setData(res.results);
     } catch (error) {
       console.log(error);

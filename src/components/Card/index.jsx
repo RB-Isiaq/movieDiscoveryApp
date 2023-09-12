@@ -6,7 +6,6 @@ import { getYear } from "../../utils/getYear";
 
 const Card = ({ movie }) => {
   const { id, title, poster_path, release_date, vote_average } = movie;
-  console.log(movie);
   const [genres, setGenres] = useState([]);
   const [country, setCountry] = useState();
 
@@ -27,7 +26,7 @@ const Card = ({ movie }) => {
   }, [getMovie]);
 
   return (
-    <Link to={`/${id}`}>
+    <Link to={`/movie/${id}`}>
       <div
         className="relative w-[320px] sm:w-[250px] h-[520px] flex flex-col justify-start gap-2 font-dm_sans shadow"
         data-testid="movie-card"
@@ -40,7 +39,7 @@ const Card = ({ movie }) => {
         />
         <div className="absolute top-0 flex justify-between w-full p-[15px]">
           <p className="flex justify-center items-center text-[12px] font-bold text-gray-900 rounded-xl bg-[#F3F4F6] bg-opacity-50 backdrop-blur-sm px-2 py-1">
-            TV SERIES
+            MOVIE
           </p>
           <button className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-[#F3F4F6] bg-opacity-50 backdrop-blur-sm">
             <img src={Heart} alt="like" />

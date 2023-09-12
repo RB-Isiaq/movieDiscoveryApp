@@ -1,1 +1,1 @@
-export const getYear = (year) => new Date(year).getFullYear();
+export const getYear = (year) => new Date(year).getUTCFullYear();

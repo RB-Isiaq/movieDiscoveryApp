@@ -23,9 +23,17 @@ const MovieDetails = ({ data }) => {
       <div className="left flex flex-col gap-8">
         <div className="flex w-full items-center gap-4 flex-wrap">
           <p className="text-[#404040] font-poppins text-[23px]">
-            <span className="mx-1">{title} </span> {" • "}
-            <span className="mx-1">{getYear(release_date)}</span> {" • "}
-            <span className="mx-1">{convertTime(runtime)}</span> {" • "}
+            <span className="mr-1" data-testid="movie-title">
+              {title}{" "}
+            </span>{" "}
+            {" • "}
+            <span className="mx-1" data-testid="movie-release-date">
+              {getYear(release_date)}
+            </span>{" "}
+            {" • "}
+            <span className="mx-1" data-testid="movie-runtime">
+              {convertTime(runtime)}
+            </span>
           </p>
           {genres?.map((genre) => (
             <p className="text-[#B91C1C] text-sm font-medium" key={genre.id}>
@@ -46,15 +54,22 @@ const MovieDetails = ({ data }) => {
           </div>
         </div>
         <div>
-          <p className="text-[#333] font-poppins text-xl">{overview}</p>
+          <p
+            className="text-[#333] font-poppins text-xl"
+            data-testid="movie-overview"
+          >
+            {overview}
+          </p>
         </div>
         <div className="flex flex-col gap-7">
           <p className="text-[#333] font-poppins text-lg">
             Status : <span className="text-[#BE123C]">{status}</span>
           </p>
-          <p className="text-[#333] font-poppins text-lg">
-            Tagline : <span className="text-[#BE123C]">{tagline}</span>
-          </p>
+          {tagline && (
+            <p className="text-[#333] font-poppins text-lg">
+              Tagline : <span className="text-[#BE123C]">{tagline}</span>
+            </p>
+          )}
           <p className="text-[#333] font-poppins text-lg">
             Home page :{" "}
             <Link to={homepage}>
