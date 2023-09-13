@@ -1,6 +1,6 @@
 import React from "react";
 import { Star } from "../../assets";
-import { getYear, getUtcTime } from "../../utils/getYear";
+import { getUtcTime } from "../../utils/getYear";
 import { convertTime } from "../../utils/timeConverter";
 import { Link } from "react-router-dom";
 
