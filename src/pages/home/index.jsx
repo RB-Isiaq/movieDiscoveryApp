@@ -13,7 +13,7 @@ const Home = () => {
   const getMovies = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await getData("movie/popular");
+      const res = await getData("movie/top_rated");
       if (res);
       setData(res.results);
     } catch (error) {
