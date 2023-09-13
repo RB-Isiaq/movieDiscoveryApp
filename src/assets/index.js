@@ -16,6 +16,7 @@ import X from "./icons/x.svg";
 import Yt from "./icons/yb.svg";
 import VideoPoster from "./icons/videoPoster.png";
 import Star from "./icons/star.png";
+import Liked from "./icons/liked.svg";
 
 export {
   Heart,
@@ -36,4 +37,5 @@ export {
   Yt,
   VideoPoster,
   Star,
+  Liked,
 };

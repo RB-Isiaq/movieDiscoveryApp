@@ -1,7 +1,6 @@
 import React from "react";
 import { Star } from "../../assets";
 import { getYear } from "../../utils/getYear";
-import { convertTime } from "../../utils/timeConverter";
 import { Link } from "react-router-dom";
 
 const MovieDetails = ({ data }) => {
