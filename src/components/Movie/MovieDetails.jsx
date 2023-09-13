@@ -1,7 +1,7 @@
 import React from "react";
 import { Star } from "../../assets";
 import { getYear } from "../../utils/getYear";
-import { convertTime } from "../../utils/timeConverter";
+import { convertTime, getUtcDate } from "../../utils/timeConverter";
 import { Link } from "react-router-dom";
 
 const MovieDetails = ({ data }) => {
@@ -28,11 +28,11 @@ const MovieDetails = ({ data }) => {
             </span>{" "}
             {" • "}
             <span className="mx-1" data-testid="movie-release-date">
-              {getYear(release_date)}
+              {getUtcDate(release_date)}
             </span>{" "}
             {" • "}
             <span className="mx-1" data-testid="movie-runtime">
-              {convertTime(runtime)}
+              {runtime} mins
             </span>
           </p>
           {genres?.map((genre) => (
