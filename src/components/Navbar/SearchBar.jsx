@@ -14,7 +14,7 @@ const SearchBar = () => {
       if (value) {
         res = await getData(`search/movie?query=${value}`);
       } else {
-        res = await getData("movie/popular");
+        res = await getData("movie/top_rated");
       }
 
       setData(res.results);
