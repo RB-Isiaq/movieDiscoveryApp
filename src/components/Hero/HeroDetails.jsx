@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const HeroDetails = ({ data }) => {
   return (
     <div className="w-[504px] min-h-[290px] flex flex-col gap-4 font-dm_sans text-white mt-28">
-      <h1 className="text-white font-dm_sans text-[48px] font-bold leading-[56px]">
+      <h1 className="text-white font-dm_sans text-[38px] sm:text-[48px] font-bold leading-[50px] sm:leading-[56px]">
         {data?.title}
       </h1>
       <div className="flex gap-4">
