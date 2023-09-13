@@ -18,7 +18,7 @@ const Card = ({ movie }) => {
       setGenres(res.genres);
       setCountry(res.production_countries[0].name);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }, []);
 
@@ -27,7 +27,7 @@ const Card = ({ movie }) => {
   }, [getMovie]);
 
   return (
-    <div className="border-2 border-solid w-max relative">
+    <div className="w-max relative">
       <div className="absolute top-0 flex justify-between w-full p-[15px]">
         <p className="flex justify-center items-center text-[12px] font-bold text-gray-900 rounded-xl bg-[#F3F4F6] bg-opacity-50 backdrop-blur-sm px-2 py-1">
           MOVIE

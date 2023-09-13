@@ -1,10 +1,11 @@
 import { Imdb, Like, Play } from "../../assets";
 import { Link } from "react-router-dom";
+import { truncateWords } from "../../utils/truncateWords";
 
 const HeroDetails = ({ data }) => {
   return (
     <div className="w-[504px] min-h-[290px] flex flex-col gap-4 font-dm_sans text-white mt-28">
-      <h1 className="text-white font-dm_sans text-[38px] sm:text-[48px] font-bold leading-[50px] sm:leading-[56px]">
+      <h1 className="text-white font-dm_sans text-[36px] sm:text-[48px] font-bold leading-[46px] sm:leading-[56px]">
         {data?.title}
       </h1>
       <div className="flex gap-4">
@@ -17,7 +18,7 @@ const HeroDetails = ({ data }) => {
           <p className="text-[12px]">{Math.round(data?.vote_average * 10)}%</p>
         </div>
       </div>
-      <p className="text-[14px] w-[302px]">{data?.overview}</p>
+      <p className="text-[14px] w-[302px]">{truncateWords(data?.overview)}</p>
       <Link to={`/movie/${data?.id}`}>
         <div className="w-[169px] flex px-4 py-[6px] gap-[8px] bg-[#BE123C] rounded-md">
           <img src={Play} alt="play" />

@@ -5,7 +5,7 @@ import { getData } from "../../services/ApiClient";
 
 const SearchBar = () => {
   const [value, setValue] = useState("");
-  const { setData } = useContext(DataCtx);
+  const { setData, setTitle } = useContext(DataCtx);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,13 +13,15 @@ const SearchBar = () => {
     try {
       if (value) {
         res = await getData(`search/movie?query=${value}`);
+        setTitle("Searched");
       } else {
         res = await getData("movie/top_rated");
+        setTitle("Featured");
       }
 
       setData(res.results);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
   return (

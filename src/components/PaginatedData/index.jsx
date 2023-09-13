@@ -4,15 +4,13 @@ import FeaturedMovies from "../FeaturedMovies";
 import { Loader } from "../../assets";
 import { DataCtx } from "../../context/dataContext";
 
-const PaginateData = ({ movieData, loading, error }) => {
+const PaginateData = ({ loading, error }) => {
   const { data } = useContext(DataCtx);
   const [index, setIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(10);
   const [paginatedData, setPaginatedData] = useState(
     data.slice(index, lastIndex)
   );
-  console.log(data);
-  console.log(paginatedData);
 
   const nextHandler = () => {
     setLastIndex(index);
@@ -31,7 +29,7 @@ const PaginateData = ({ movieData, loading, error }) => {
       ) : error ? (
         <p className="text-center text-lg text-red-400">{error}</p>
       ) : (
-        <div className="w-full flex flex-col justify-center items-center sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-20 gap-y-[76px] py-10">
+        <div className="w-full flex flex-col justify-center items-center sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-20 gap-y-[76px] pt-0 sm:py-10">
           {paginatedData.map((item, i) => (
             <Card key={i} movie={item} />
           ))}
