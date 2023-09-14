@@ -8,13 +8,12 @@ import { DataCtx } from "../../context/dataContext";
 import { Loader } from "../../assets";
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const { data, setData } = useContext(DataCtx);
+  const { data, setData, error, setError } = useContext(DataCtx);
   const getMovies = useCallback(async () => {
     try {
       setLoading(true);
       const res = await getData("movie/top_rated");
-      if (res);
+      if (res.results);
       setData(res.results);
     } catch (error) {
       console.log(error.message);
@@ -28,17 +27,21 @@ const Home = () => {
     getMovies();
   }, [getMovies]);
 
-  return loading ? (
-    <img className="mt-[280px]" src={Loader} alt="loader" />
-  ) : error ? (
-    <p className="text-center text-2xl text-red-400 mt-[300px]">{error}</p>
-  ) : (
-    <section className="w-full flex justify-center items-center flex-col">
+  return (
+    <>
       <Navbar />
-      <Hero />
-      <PaginateData movieData={data} loading={loading} error={error} />
+      {loading ? (
+        <img className="mt-[280px]" src={Loader} alt="loader" />
+      ) : error ? (
+        <p className="text-center text-2xl text-red-400 mt-[280px]">{error}</p>
+      ) : (
+        <section className="w-full flex justify-center items-center flex-col">
+          <Hero />
+          <PaginateData movieData={data} loading={loading} error={error} />
+        </section>
+      )}
       <Footer />
-    </section>
+    </>
   );
 };
 

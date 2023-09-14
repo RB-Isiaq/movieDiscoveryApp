@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavbarLogo from "./NavbarLogo";
 import SearchBar from "./SearchBar";
 import SignIn from "./SignIn";
+import { DataCtx } from "../../context/dataContext";
 
 const Navbar = () => {
+  const { error } = useContext(DataCtx);
   return (
-    <div className="w-full flex flex-wrap justify-between items-center gap-y-4 bg-inherit py-[22px] z-[50] sticky">
+    <div
+      className={`w-screen flex flex-wrap justify-between items-center gap-y-4 lg:px-[95px] md:px-8 px-4 ${
+        error ? "bg-black" : "bg-inherit"
+      } py-[22px] z-[50] sticky`}
+    >
       <NavbarLogo />
       <SearchBar />
       <SignIn />

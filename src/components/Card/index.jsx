@@ -26,6 +26,10 @@ const Card = ({ movie }) => {
     getMovie();
   }, [getMovie]);
 
+  const handleLiked = () => {
+    setIsLiked((prev) => !prev);
+  };
+
   return (
     <div className="w-max relative">
       <div className="absolute top-0 flex justify-between w-full p-[15px]">
@@ -34,14 +38,14 @@ const Card = ({ movie }) => {
         </p>
         <button
           className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-[#F3F4F6] bg-opacity-50 backdrop-blur-sm"
-          onClick={() => setIsLiked((prev) => !prev)}
+          onClick={handleLiked}
         >
-          <img src={isLiked ? Liked : Heart} alt="like" className="w-5 h-5" />
+          <img src={isLiked ? Liked : Heart} alt="like" className="w-5 h-5 " />
         </button>
       </div>
       <Link to={`/movie/${id}`}>
         <div
-          className="w-[320px] sm:w-[250px] h-[520px] flex flex-col justify-start gap-2 font-dm_sans shadow"
+          className="w-[320px] sm:w-[250px] h-[550px] flex flex-col justify-start gap-2 font-dm_sans shadow"
           data-testid="movie-card"
         >
           <img
@@ -66,11 +70,13 @@ const Card = ({ movie }) => {
           <div className="flex justify-between text-gray-900 font-normal px-1">
             <div className="flex gap-3">
               <img src={Imdb} alt="imdb" />
-              <p className="text-[12px]">{vote_average.toPrecision(2)}</p>
+              <p className="text-[12px]">
+                {Math.ceil(vote_average * 10).toPrecision(3)} / 100
+              </p>
             </div>
             <div className="flex gap-3">
               <img src={Like} alt="like" />
-              <p className="text-[12px]">{Math.round(vote_average * 10)}%</p>
+              <p className="text-[12px]">{Math.ceil(vote_average * 10)}%</p>
             </div>
           </div>
           <p className="text-gray-400 text-xs font-bold px-1">

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Movie from "../../components/Movie";
 import { getData } from "../../services/ApiClient";
 
-const CountryDetails = () => {
+const SingleMovieDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
@@ -28,4 +28,4 @@ const CountryDetails = () => {
   return <Movie data={data} error={error} loading={loading} />;
 };
 
-export default CountryDetails;
+export default SingleMovieDetails;

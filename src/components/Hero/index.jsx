@@ -22,6 +22,7 @@ const Hero = () => {
     <div
       className="w-full min-h-[620px] lg:px-[95px] md:px-8 px-4 flex items-center mt-0 mx-auto absolute top-0 transition-opacity duration-1000 ease-in-out"
       style={{
+        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
@@ -29,21 +30,19 @@ const Hero = () => {
       <div
         className="w-full h-full absolute top-0 left-0 opacity-100 transition-opacity duration-1000 ease-in-out"
         style={{
-          backgroundImage: `url(${IMG_URL}${currentImage})`,
+          backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${IMG_URL}${currentImage})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          filter: "brightness(50%)",
         }}
       ></div>
       <div
         className="w-full h-full absolute top-0 left-0 opacity-0 transition-opacity duration-1000 ease-in-out"
         style={{
-          backgroundImage: `url(${IMG_URL}${
+          backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${IMG_URL}${
             data[(index + 1) % data.length]?.backdrop_path
           })`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          filter: "brightness(50%)",
         }}
       ></div>
       <HeroDetails data={data[index]} />
