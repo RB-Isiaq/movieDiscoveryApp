@@ -4,7 +4,8 @@ export const getUtcDate = (time) => {
   if (time) {
     const newDate = new Date(time);
     const utcDate = newDate.toISOString();
-    return utcDate;
+    const date = newDate.toUTCString();
+    return date;
   }
 };
 
