@@ -4,7 +4,7 @@ import { truncateWords } from "../../utils/truncateWords";
 
 const HeroDetails = ({ data }) => {
   return (
-    <div className="w-[504px] min-h-[290px] flex flex-col gap-4 font-dm_sans text-white mt-28">
+    <div className="w-[504px] min-h-[290px] flex flex-col gap-4 font-dm_sans text-white mt-28 z-40">
       <h1 className="text-white font-dm_sans text-[36px] sm:text-[48px] font-bold leading-[46px] sm:leading-[56px]">
         {data?.title}
       </h1>
