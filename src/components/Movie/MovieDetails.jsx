@@ -23,7 +23,7 @@ const MovieDetails = ({ data }) => {
         <div className="flex w-full items-center gap-4 flex-wrap">
           <p className="text-[#404040] font-poppins text-[23px]">
             <span className="mr-1" data-testid="movie-title">
-              {title}{" "}
+              {title}
             </span>{" "}
             {" • "}
             <span className="mx-1" data-testid="movie-release-date">
@@ -31,8 +31,9 @@ const MovieDetails = ({ data }) => {
             </span>{" "}
             {" • "}
             <span className="mx-1" data-testid="movie-runtime">
-              {runtime} mins
-            </span>
+              {runtime}
+            </span>{" "}
+            mins
           </p>
           {genres?.map((genre) => (
             <p className="text-[#B91C1C] text-sm font-medium" key={genre.id}>
