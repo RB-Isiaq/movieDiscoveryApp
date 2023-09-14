@@ -45,7 +45,7 @@ const Card = ({ movie }) => {
       </div>
       <Link to={`/movie/${id}`}>
         <div
-          className="w-[320px] sm:w-[250px] h-[550px] flex flex-col justify-start gap-2 font-dm_sans shadow"
+          className="w-[320px] sm:w-[250px] h-[530px] flex flex-col justify-start gap-2 font-dm_sans shadow"
           data-testid="movie-card"
         >
           <img

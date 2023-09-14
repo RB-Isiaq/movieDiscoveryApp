@@ -3,7 +3,7 @@ import FeaturedTitle from "./FeaturedTitle";
 
 const FeaturedMovies = ({ handleNext }) => {
   return (
-    <div className="w-full mt-[500px] md:mt-[580px]">
+    <div className="w-full mt-[660px] md:mt-[680px]">
       <FeaturedTitle handleNext={handleNext} />
     </div>
   );

@@ -8,9 +8,9 @@ const Navbar = () => {
   const { error } = useContext(DataCtx);
   return (
     <div
-      className={`w-screen flex flex-wrap justify-between items-center gap-y-4 lg:px-[95px] md:px-8 px-4 ${
+      className={`w-full absolute top-0 flex flex-wrap justify-between items-center gap-y-4 lg:px-[95px] md:px-8 px-4 ${
         error ? "bg-black" : "bg-inherit"
-      } py-[22px] z-[50] sticky`}
+      } py-[22px] z-[50] `}
     >
       <NavbarLogo />
       <SearchBar />
