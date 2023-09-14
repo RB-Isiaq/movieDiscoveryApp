@@ -31,7 +31,7 @@ const Card = ({ movie }) => {
   };
 
   return (
-    <div className="w-max relative">
+    <div className="w-max relative hover:scale-[1.02] transition-all duration-1000">
       <div className="absolute top-0 flex justify-between w-full p-[15px]">
         <p className="flex justify-center items-center text-[12px] font-bold text-gray-900 rounded-xl bg-[#F3F4F6] bg-opacity-50 backdrop-blur-sm px-2 py-1">
           MOVIE
@@ -45,7 +45,7 @@ const Card = ({ movie }) => {
       </div>
       <Link to={`/movie/${id}`}>
         <div
-          className="w-[320px] sm:w-[250px] h-[530px] flex flex-col justify-start gap-2 font-dm_sans shadow"
+          className="w-[320px] sm:w-[250px] h-[530px] flex flex-col justify-start gap-2 font-dm_sans shadow "
           data-testid="movie-card"
         >
           <img
