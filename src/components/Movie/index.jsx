@@ -5,20 +5,20 @@ import { Loader } from "../../assets";
 import { searchMovieOnYouTube } from "../../services/ApiClient";
 
 const Movie = ({ data, loading, error }) => {
-  const { video, poster_path, title } = data;
-  const [videoPath, setVideoPath] = useState("");
+  const { title, videos } = data;
+  const [videoKey, setVideoKey] = useState("");
 
   const getMovieTrailer = useCallback(async () => {
     if (title) {
       try {
         const res = await searchMovieOnYouTube(title);
         console.log(res);
-        setVideoPath(res);
+        setVideoKey(res);
       } catch (error) {
         console.log(error.message);
       }
     }
-  }, [setVideoPath, title]);
+  }, [setVideoKey, title]);
 
   useEffect(() => {
     getMovieTrailer();
@@ -30,7 +30,7 @@ const Movie = ({ data, loading, error }) => {
     <p className="text-center text-2xl text-red-400 mt-[300px]">{error}</p>
   ) : (
     <div className="flex flex-col gap-8 py-6">
-      <MovieVideo poster={poster_path} video={video} source={videoPath} />
+      <MovieVideo source={videoKey} videos={videos} />
       <MovieDetails data={data} />
     </div>
   );

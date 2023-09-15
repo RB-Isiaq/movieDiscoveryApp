@@ -6,7 +6,9 @@ const MovieTrailer = ({ videoId }) => {
     height: "390",
     width: "100%",
     playerVars: {
-      // You can specify additional player options here if needed
+      autoplay: 1,
+      controls: 1,
+      modestbranding: 1,
     },
   };
 

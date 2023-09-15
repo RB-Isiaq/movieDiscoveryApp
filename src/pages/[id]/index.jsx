@@ -12,7 +12,9 @@ const SingleMovieDetails = () => {
   const getMovie = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await getData(`movie/${id}`);
+      const res = await getData(
+        `movie/${id}?append_to_response=credits,videos`
+      );
       if (res) setData(res);
     } catch (error) {
       console.log(error.message);

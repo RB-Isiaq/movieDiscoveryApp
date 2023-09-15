@@ -12,9 +12,9 @@ const MovieDetails = ({ data }) => {
     overview,
     popularity,
     genres,
-    status,
     tagline,
     homepage,
+    credits,
   } = data;
 
   return (
@@ -46,10 +46,7 @@ const MovieDetails = ({ data }) => {
               <span className="text-[20px] text-[#999]">
                 {vote_average?.toPrecision(2)}
               </span>
-              <span className="text-[20px] text-[#666]">
-                {" "}
-                | {(popularity / 1000)?.toPrecision(2)}K
-              </span>
+              <span className="text-[20px] text-[#666]"> | {popularity}K</span>
             </p>
           </div>
         </div>
@@ -63,7 +60,17 @@ const MovieDetails = ({ data }) => {
         </div>
         <div className="flex flex-col gap-7">
           <p className="text-[#333] font-poppins text-lg">
-            Status : <span className="text-[#BE123C]">{status}</span>
+            Casts :{" "}
+            {credits?.cast.slice(0, 5).map((actor, i) => (
+              <span key={i} className="text-[#BE123C]">
+                {actor.name}
+                {i === credits?.cast.slice(0, 5).length - 1 ? (
+                  "."
+                ) : (
+                  <span className="mr-2">,</span>
+                )}
+              </span>
+            ))}
           </p>
           {tagline && (
             <p className="text-[#333] font-poppins text-lg">
