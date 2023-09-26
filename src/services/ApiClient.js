@@ -19,9 +19,6 @@ export const searchMovieOnYouTube = async (title) => {
   const response = await fetch(
     `https://www.googleapis.com/youtube/v3/search?${queryString}`
   );
-
-  console.log(response);
-
   if (response.ok) {
     const data = await response.json();
     const searchResults = data.items;

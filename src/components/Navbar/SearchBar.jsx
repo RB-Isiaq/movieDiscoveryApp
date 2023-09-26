@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Search } from "../../assets";
 import { DataCtx } from "../../context/dataContext";
 import { getData } from "../../services/ApiClient";
@@ -7,18 +7,15 @@ const SearchBar = () => {
   const [value, setValue] = useState("");
   const { setData, setTitle, setError } = useContext(DataCtx);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(async () => {
     let res;
     try {
       if (value) {
-        console.log(value);
         res = await getData(`search/movie?query=${value}`);
         setTitle("Searched");
       } else {
-        console.log(value, "ELSE");
         res = await getData("movie/top_rated");
-        setTitle("Featured");
+        setTitle("Top rated");
       }
       if (res.results.length > 0) {
         setError(null);
@@ -28,12 +25,14 @@ const SearchBar = () => {
       console.log(error.message);
       setError(error.message);
     }
-  };
+  }, [value]);
+
+  useEffect(() => {
+    handleSubmit();
+  }, [handleSubmit]);
+
   return (
-    <form
-      className="flex w-full sm:w-[525px] py-[6px] px-[10px] justify-center items-center rounded-md border-2 border-solid border-gray-300 gap-2"
-      onSubmit={handleSubmit}
-    >
+    <form className="flex w-full sm:w-[525px] py-[6px] px-[10px] justify-center items-center rounded-md border-2 border-solid border-gray-300 gap-2">
       <input
         placeholder="What do you want to watch?"
         className="w-full border-none outline-none bg-inherit text-white placeholder:text-white"

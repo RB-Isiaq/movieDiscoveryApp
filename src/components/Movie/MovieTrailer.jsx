@@ -3,7 +3,7 @@ import YouTube from "react-youtube";
 
 const MovieTrailer = ({ videoId }) => {
   const opts = {
-    height: "390",
+    height: "400",
     width: "100%",
     playerVars: {
       autoplay: 1,

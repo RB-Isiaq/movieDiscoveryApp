@@ -8,11 +8,13 @@ import { DataCtx } from "../../context/dataContext";
 import { Loader } from "../../assets";
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const { data, setData, error, setError } = useContext(DataCtx);
+  const { data, setData, error, setError, title } = useContext(DataCtx);
+  const titleEndpoint = title === "Top rated" ? "top_rated" : "popular";
+
   const getMovies = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await getData("movie/top_rated");
+      const res = await getData(`movie/${titleEndpoint}`);
       if (res.results);
       setData(res.results);
     } catch (error) {
@@ -21,7 +23,7 @@ const Home = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [titleEndpoint]);
 
   useEffect(() => {
     getMovies();

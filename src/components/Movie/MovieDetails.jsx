@@ -1,7 +1,8 @@
 import React from "react";
 import { Star } from "../../assets";
-import { getUtcDate, getYear } from "../../utils/getYear";
+import { getUtcDate } from "../../utils/getYear";
 import { Link } from "react-router-dom";
+import { convertTime } from "../../utils/timeConverter";
 
 const MovieDetails = ({ data }) => {
   const {
@@ -18,7 +19,7 @@ const MovieDetails = ({ data }) => {
   } = data;
 
   return (
-    <div className="w-full max-w-[760px]">
+    <div className="w-full max-w-[1000px]">
       <div className="left flex flex-col gap-8">
         <div className="flex w-full items-center gap-4 flex-wrap">
           <p className="text-[#404040] font-poppins text-[23px]">
@@ -31,9 +32,8 @@ const MovieDetails = ({ data }) => {
             </span>{" "}
             {" • "}
             <span className="mx-1" data-testid="movie-runtime">
-              {runtime}
+              {convertTime(runtime)}
             </span>{" "}
-            mins
           </p>
           {genres?.map((genre) => (
             <p className="text-[#B91C1C] text-sm font-medium" key={genre.id}>

@@ -12,7 +12,6 @@ const Movie = ({ data, loading, error }) => {
     if (title) {
       try {
         const res = await searchMovieOnYouTube(title);
-        console.log(res);
         setVideoKey(res);
       } catch (error) {
         console.log(error.message);

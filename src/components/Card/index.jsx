@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Heart, Imdb, Like, Liked } from "../../assets";
 import { getData } from "../../services/ApiClient";
-import { getUtcDate, getYear } from "../../utils/getYear";
+import { getYear } from "../../utils/getYear";
 
 const Card = ({ movie }) => {
   const { id, title, poster_path, release_date, vote_average } = movie;
@@ -58,7 +58,7 @@ const Card = ({ movie }) => {
           <p className="text-[#9CA3AF] text-xs font-bold px-1">
             {country},{" "}
             <span data-testid="movie-release-date">
-              {getUtcDate(release_date)}
+              {getYear(release_date)}
             </span>
           </p>
           <h1

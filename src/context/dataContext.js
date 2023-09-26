@@ -4,7 +4,7 @@ export const DataCtx = createContext();
 
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
-  const [title, setTitle] = useState("Featured");
+  const [title, setTitle] = useState("Top rated");
   const [error, setError] = useState(null);
 
   const value = { data, setData, title, setTitle, error, setError };
